@@ -15,7 +15,8 @@ public class Duke {
         String reply;
         Scanner scan = new Scanner(System.in);
 
-        String[] list = new String[100];
+        Task[] list = new Task[100];
+
         int listCounter = 0;
 
         while(true) {
@@ -27,16 +28,24 @@ public class Duke {
                         " ____________________________________________________________\n");
                 break;
             }
-            if(reply.equals("list")){
+            else if (reply.equals("list")){
                 System.out.print(" ____________________________________________________________\n");
                 for ( int i = 1; i <= listCounter ; i++){
-                    System.out.println( i + ". " + list[i-1] );
+                    System.out.println( i + ".[" + list[i-1].checkStatus() + "] " + list[i-1].description );
                 }
                 System.out.println(" ____________________________________________________________\n");
             }
+            else if (reply.contains("done")){
+                for (int j = 1; j <= listCounter ; j++){
+                    if (reply.contains(Integer.toString(j))){ //finding out the task that is chosen
+                        list[j-1].markAsDone(); // minus 1 coz the array of Task is 1 digit ahead
+                    }
+                }
+            }
             else {
-                list[listCounter] = reply;
-                listCounter++;
+                Task t = new Task(reply); //initialising the new task
+                list[listCounter] = t; //adding task to the list
+                listCounter++; //counter to keep track of number of tasks
 
                 System.out.println(" ____________________________________________________________\n" +
                         " added: " + reply + "\n" +
