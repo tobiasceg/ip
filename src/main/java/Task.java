@@ -14,15 +14,14 @@ public class Task {
     public void markAsDone(){
         if (!isDone){   //checking if isDone is false?
             isDone = true;
-            System.out.println(" ____________________________________________________________\n");
-            System.out.println(" Nice! I've marked this task as done:\n");
+            System.out.println(" ____________________________________________________________");
+            System.out.println(" Nice! I've marked this task as done:");
             System.out.println("  [" + checkStatus() + "] "+ description);
-            System.out.println(" ____________________________________________________________\n");
-        }
-        else{
-            System.out.println(" ____________________________________________________________\n");
+            System.out.println(" ____________________________________________________________");
+        } else{
+            System.out.println(" ____________________________________________________________");
             System.out.println(" You have already finished the task!");
-            System.out.println(" ____________________________________________________________\n");
+            System.out.println(" ____________________________________________________________");
         }
     }
 }
