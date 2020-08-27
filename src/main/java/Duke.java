@@ -2,13 +2,13 @@ import java.util.Scanner;
 
 public class Duke {
     public static void main(String[] args) {
-        String intro = " ____________________________________________________________\n" +
+        String INTRO_MESSAGE = " ____________________________________________________________\n" +
                 " Hello! I'm Duke the list bot ಠ╭╮ಠ\n" +
                 " Please list down your plans for today... ಠ_ಠ\n" +
                 " type \"list\" to see the current list!\n" +
                 " type \"bye\" after you are done!\n" +
                 " ____________________________________________________________";
-        System.out.println(intro);
+        System.out.println(INTRO_MESSAGE);
 
         String reply;
         Scanner scan = new Scanner(System.in);
