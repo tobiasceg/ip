@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Duke {
     public static void main(String[] args) {
         String INTRO_MESSAGE = " ____________________________________________________________\n" +
-                " Hello! I'm Duke the list bot ಠ╭╮ಠ\n" +
-                " Please list down your plans for today... ಠ_ಠ\n" +
+                " Hello! I'm Duke the list bot\n" +
+                " Please list down your plans for today...\n" +
                 " type \"list\" to see the current list!\n" +
                 " type \"bye\" after you are done!\n" +
                 " ____________________________________________________________";
@@ -30,7 +30,7 @@ public class Duke {
 
             if (reply.equals("bye")) {
                 System.out.println(" ____________________________________________________________\n" +
-                        " Bye. Hope to see you again soon! ᕙ(⇀‸↼‶)ᕗ \n" +
+                        " Bye. Hope to see you again soon!\n" +
                         " ____________________________________________________________\n");
                 break;
             } else if (reply.equals("list")){
