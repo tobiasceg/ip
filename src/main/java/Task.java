@@ -11,8 +11,7 @@ public class Task {
     public String checkStatus() {
         return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
     }
-
-    //going to be overloaded by subclasses
+    
     @Override
     public String toString(){ //returning the task only with status box
         return "[" + this.checkStatus() + "] " + this.description;
