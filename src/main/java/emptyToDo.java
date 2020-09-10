@@ -1,2 +1,2 @@
-public class emptyToDo extends Exception {
+public class emptyToDo extends DukeException{
 }

@@ -1,2 +1,2 @@
-public class UnknownCommand extends Exception{
+public class UnknownCommand extends DukeException{
 }

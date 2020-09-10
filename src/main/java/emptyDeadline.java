@@ -1,2 +1,2 @@
-public class emptyDeadline extends Exception{
+public class emptyDeadline extends DukeException{
 }
