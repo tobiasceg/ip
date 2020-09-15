@@ -17,16 +17,21 @@ public class Task {
         return "[" + this.checkStatus() + "] " + this.description;
     }
 
-    public void markAsDone(){
-        printLine();
+    public void markAsDone(int rebootFlag){
+
         if (!isDone){   //checking if isDone is false?
             isDone = true;
-            System.out.println(" Nice! I've marked this task as done:");
-            System.out.println("  [" + checkStatus() + "] "+ description);
+            if ( rebootFlag == 1) {
+                printLine();
+                System.out.println(" Nice! I've marked this task as done:");
+                System.out.println("  [" + checkStatus() + "] " + description);
+                printLine();
+            }
         } else{
+            printLine();
             System.out.println(" You have already finished the task!");
+            printLine();
         }
-        printLine();
     }
 
     public void printLine() {
