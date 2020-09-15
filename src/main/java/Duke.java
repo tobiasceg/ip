@@ -1,5 +1,7 @@
+import javax.sound.midi.SysexMessage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -8,7 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class Duke {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         introMessage();
 
         String reply;
@@ -16,6 +18,7 @@ public class Duke {
 
         String dukeHome = System.getProperty("user.dir");
         Path dukeLocation = Paths.get(dukeHome, "data", "duke.txt");
+        File dukeFile = new File(String.valueOf(dukeLocation));
 
         // Array of the Task class objects
         ArrayList<Task> list = new ArrayList<>();
@@ -34,7 +37,6 @@ public class Duke {
         int STATUS_REMOVAL = 7;
 
         try {
-            File dukeFile = new File(String.valueOf(dukeLocation));
             Scanner myReader = new Scanner(dukeFile);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -65,7 +67,12 @@ public class Duke {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            printMissingFileMessage();
+            try {
+                Path path = Paths.get(String.valueOf(dukeLocation)); //if file is missing create a new file
+                Files.createDirectory(path.getParent());
+            } catch (IOException i){
+                System.out.println("Error creating file");
+            }
         }
 
         while (true) {
