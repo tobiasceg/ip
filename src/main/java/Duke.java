@@ -9,6 +9,7 @@ import java.io.File;
 import Command.AddCommand;
 import Command.DeleteCommand;
 import Command.DoneCommand;
+import Command.FindCommand;
 import exceptions.EmptyDeadline;
 import exceptions.EmptyEvent;
 import exceptions.EmptyToDo;
@@ -48,7 +49,9 @@ public class Duke {
                 } else if (reply.contains("done")) {
                     DoneCommand.execute(reply,list);
                 } else if (reply.contains("delete")) {
-                    DeleteCommand.execute(reply,list);
+                    DeleteCommand.execute(reply, list);
+                }else if (reply.contains("find")){
+                    FindCommand.execute(reply,list);
                 } else {
                     taskFlag = AddCommand.execute(reply,list);
                 }
