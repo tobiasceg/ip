@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.DateTimeException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.File;
@@ -73,6 +74,8 @@ public class Duke {
                 }
             } catch (IOException e) {
                 Ui.printMissingFileMessage();
+            } catch (DateTimeException e){
+                Ui.incorrectDateFormat();
             }
         }
     }
