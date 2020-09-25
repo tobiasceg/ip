@@ -53,4 +53,10 @@ public abstract class Ui{
         printLine();
     }
 
+    public static void incorrectDateFormat() {
+        printLine();
+        System.out.println("Incorrect Date or DateTime input detected!" +
+                "Please follow the format: d-MM-yyyy or d-MM-yyyy HHmm");
+        printLine();
+    }
 }
