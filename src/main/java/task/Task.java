@@ -36,7 +36,7 @@ public class Task {
         }
     }
 
-    public void printLine() {
+    public static void printLine() {
         System.out.println(" ____________________________________________________________");
     }
 }
