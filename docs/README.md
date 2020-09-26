@@ -1,10 +1,10 @@
 # User Guide
 Tobias's Duke
 ## Features 
-###Managing todos, deadlines and events 
+Managing todos, deadlines and events 
 Duke is in charge of listing and keeping track of your tasks (todos,deadlines and events)
 
-###Saving and Loading
+Saving and Loading
 Duke also automatically saves your current list into your computer
 and automatically uploads the saved list everytime you start a new session
 
