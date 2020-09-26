@@ -20,6 +20,14 @@ import task.TaskList;
 
 import ui.Ui;
 
+    /**
+     *  The main class Duke. Initialization of important variables
+     *  And reading from the txt file to preload existing Tasks
+     *  The main event loop happens inside here,
+     *
+     *  All catching of any exceptions that occur is done here
+     */
+
 public class Duke {
     public static void main(String[] args){
         Ui.introMessage();

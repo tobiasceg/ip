@@ -17,10 +17,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * AddCommand is responsible for any task that the user inputs to be
+ * added to the arraylist list.
+ *
+ * If neither command is recognised, unknownCommand is thrown
+ */
 public abstract class AddCommand extends Command {
 
+    /**
+     * Extracts the task input in by the user and creates the relevant
+     * respective task, adding it to the arraylist
+     *
+     * @param inputTask command input by the user
+     * @param list arraylist to contain each task
+     * @return flag indicating which task was created
+     */
+
     public static int execute(String inputTask, ArrayList<Task> list) throws EmptyDeadline, EmptyEvent, EmptyToDo, UnknownCommand, DateTimeException {
-        int taskFlag;
+        int taskFlag; // to differentiate between each task, thus different exception
         final int TODO_REMOVAL = 5;
         final int DEADLINE_REMOVAL = 9;
         final int EVENT_REMOVAL = 6;
