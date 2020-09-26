@@ -1,25 +1,26 @@
 package task;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
  * The type Event, which extends Task
  *  Attributes are its description (name)
- *  and 'at',the date of the event
+ *  and 'at',the date and time of the event
  */
 public class Event extends Task {
 
-    private LocalDate at;
-    final private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
+    private LocalDateTime at;
+    final private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
 
     /**
      * Constructor for the Event class
      *
      * @param description name of the event
-     * @param at date of the event
+     * @param at date and time of the event
      */
-    public Event(String description, LocalDate at) {
+    public Event(String description, LocalDateTime at) {
         super(description);
         this.at = at;
     }

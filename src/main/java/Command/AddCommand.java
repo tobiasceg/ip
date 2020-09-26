@@ -12,7 +12,6 @@ import task.TaskList;
 import task.Todo;
 
 import java.time.DateTimeException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -43,8 +42,8 @@ public abstract class AddCommand extends Command {
         String taskName;
         String dueDate;
 
-        DateTimeFormatter dateTimeEventFormatter = DateTimeFormatter.ofPattern("d-MM-yyyy");
-        DateTimeFormatter dateTimeDeadlineFormatter = DateTimeFormatter.ofPattern("d-MM-yyyy HHmm");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d-MM-yyyy HHmm");
+
 
         if (inputTask.contains("todo")) {
             taskFlag = 1;
@@ -58,7 +57,7 @@ public abstract class AddCommand extends Command {
             taskName = inputTask.substring(DEADLINE_REMOVAL, inputTask.indexOf("/") - 1);
             Parser.emptyChecker(taskName, taskFlag);
             dueDate = inputTask.substring(inputTask.indexOf("/by") + 4).stripLeading().stripTrailing();
-            LocalDateTime deadlineDate = LocalDateTime.parse(dueDate,dateTimeDeadlineFormatter);
+            LocalDateTime deadlineDate = LocalDateTime.parse(dueDate,dateTimeFormatter);
             Deadline newTask = new Deadline(taskName, deadlineDate);
             TaskList.addedList(list, newTask, 1);
 
@@ -67,7 +66,7 @@ public abstract class AddCommand extends Command {
             taskName = inputTask.substring(EVENT_REMOVAL, inputTask.indexOf("/") - 1);
             Parser.emptyChecker(taskName, taskFlag);
             dueDate = inputTask.substring(inputTask.indexOf("/at") + 4).stripLeading().stripTrailing();
-            LocalDate eventDate = LocalDate.parse(dueDate,dateTimeEventFormatter);
+            LocalDateTime eventDate = LocalDateTime.parse(dueDate,dateTimeFormatter);
             Event newTask = new Event(taskName, eventDate);
             TaskList.addedList(list, newTask, 1);
         } else {

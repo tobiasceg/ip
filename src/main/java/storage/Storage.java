@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -30,8 +29,7 @@ import java.util.Scanner;
 public abstract class Storage {
 
     private static final int STATUS_REMOVAL = 7;
-    private static DateTimeFormatter dateTimeEventFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
-    private static DateTimeFormatter dateTimeDeadlineFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
+    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
 
     /**
      * Scans the txt file and updates the IDE, to contain
@@ -48,7 +46,7 @@ public abstract class Storage {
             Scanner myReader = new Scanner(dukeFile);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                LocalDate dueDateEvent;
+                LocalDateTime dueDateEvent;
                 LocalDateTime dueDateDeadline;
                 String taskName;
 
@@ -64,7 +62,7 @@ public abstract class Storage {
                     final String DUE_DATE = data.substring(data.indexOf(":") + 2, data.indexOf(")"));
                     if (data.contains("[E]")) {
                         taskName = data.substring(STATUS_REMOVAL, data.indexOf("(") - 1);
-                        dueDateEvent = LocalDate.parse(DUE_DATE,dateTimeEventFormatter);
+                        dueDateEvent = LocalDateTime.parse(DUE_DATE,dateTimeFormatter);
                         Event newTask = new Event(taskName, dueDateEvent);
                         TaskList.addedList(list,  newTask, 0);
                         if (data.contains("\u2713")) {
@@ -72,7 +70,7 @@ public abstract class Storage {
                         }
                     } else if (data.contains("[D]")) {
                         taskName = data.substring(STATUS_REMOVAL, data.indexOf("(") - 1);
-                        dueDateDeadline = LocalDateTime.parse(DUE_DATE,dateTimeDeadlineFormatter);
+                        dueDateDeadline = LocalDateTime.parse(DUE_DATE,dateTimeFormatter);
                         Deadline newTask = new Deadline(taskName, dueDateDeadline);
                         TaskList.addedList(list,  newTask, 0);
                         if (data.contains("\u2713")) {
