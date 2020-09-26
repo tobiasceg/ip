@@ -65,7 +65,7 @@ public class Task {
     /**
      *  Method to print a line
      */
-    public void printLine() {
+    public static void printLine() {
         System.out.println(" ____________________________________________________________");
     }
 }

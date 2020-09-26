@@ -70,4 +70,13 @@ public abstract class TaskList extends ArrayList<Task> {
     public static void printLine(){
         System.out.println(" ____________________________________________________________");
     }
+
+    public static void printSearchList(ArrayList<Task> searchResults) {
+        printLine();
+        System.out.println("Here are the matching tasks in your list:");
+        for (Task j: searchResults){
+            System.out.println((searchResults.indexOf(j)+1)+"."+j);
+        }
+        printLine();
+    }
 }

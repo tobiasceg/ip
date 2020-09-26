@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,6 +30,8 @@ import java.util.Scanner;
 public abstract class Storage {
 
     private static final int STATUS_REMOVAL = 7;
+    private static DateTimeFormatter dateTimeEventFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
+    private static DateTimeFormatter dateTimeDeadlineFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
 
     /**
      * Scans the txt file and updates the IDE, to contain
@@ -43,8 +48,10 @@ public abstract class Storage {
             Scanner myReader = new Scanner(dukeFile);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String dueDate;
+                LocalDate dueDateEvent;
+                LocalDateTime dueDateDeadline;
                 String taskName;
+
 
                 if (data.startsWith("[T]")) {
                     taskName = data.substring(STATUS_REMOVAL);
@@ -57,16 +64,16 @@ public abstract class Storage {
                     final String DUE_DATE = data.substring(data.indexOf(":") + 2, data.indexOf(")"));
                     if (data.contains("[E]")) {
                         taskName = data.substring(STATUS_REMOVAL, data.indexOf("(") - 1);
-                        dueDate = DUE_DATE;
-                        Event newTask = new Event(taskName, dueDate);
+                        dueDateEvent = LocalDate.parse(DUE_DATE,dateTimeEventFormatter);
+                        Event newTask = new Event(taskName, dueDateEvent);
                         TaskList.addedList(list,  newTask, 0);
                         if (data.contains("\u2713")) {
                             newTask.markAsDone(0);
                         }
                     } else if (data.contains("[D]")) {
                         taskName = data.substring(STATUS_REMOVAL, data.indexOf("(") - 1);
-                        dueDate = DUE_DATE;
-                        Deadline newTask = new Deadline(taskName, dueDate);
+                        dueDateDeadline = LocalDateTime.parse(DUE_DATE,dateTimeDeadlineFormatter);
+                        Deadline newTask = new Deadline(taskName, dueDateDeadline);
                         TaskList.addedList(list,  newTask, 0);
                         if (data.contains("\u2713")) {
                             newTask.markAsDone(0);

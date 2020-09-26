@@ -1,5 +1,8 @@
 package task;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  * The type Event, which extends Task
  *  Attributes are its description (name)
@@ -7,7 +10,8 @@ package task;
  */
 public class Event extends Task {
 
-    protected String at;
+    private LocalDate at;
+    final private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
 
     /**
      * Constructor for the Event class
@@ -15,7 +19,7 @@ public class Event extends Task {
      * @param description name of the event
      * @param at date of the event
      */
-    public Event(String description, String at) {
+    public Event(String description, LocalDate at) {
         super(description);
         this.at = at;
     }
@@ -27,6 +31,6 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (at: " + at + ")";
+        return "[E]" + super.toString() + " (at: " + at.format(formatter) + ")";
     }
 }
