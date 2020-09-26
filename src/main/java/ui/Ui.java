@@ -1,5 +1,10 @@
 package ui;
 
+/**
+ * Ui is the class responsible for outputting the respective
+ * error messages , intro and outro messages to the user
+ *
+ */
 public abstract class Ui{
 
 
