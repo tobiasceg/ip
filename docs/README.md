@@ -41,6 +41,8 @@ Adds a task to the list
 
 Format - `todo <task description>` / `deadline <task description /by <date/time>` / `event <task description> /at <date/time>`
 
+Important Note - date/time format: d-MM-yyyy HHmm
+
 #### Example of Usage:
 * Todo
 `todo read a book`
