@@ -3,24 +3,37 @@ package parser;
 import exceptions.EmptyDeadline;
 import exceptions.EmptyEvent;
 import exceptions.EmptyToDo;
+import exceptions.UnknownCommand;
 
 /**
  * Parser deals with making sense of the user's input command
  */
 public abstract class Parser {
+
     /**
-     * Checks if the task to be input is empty
+     * Checks if task is empty
      *
-     * @param taskName task input by user
-     * @param taskFlag to differentiate which error message to display
+     * @param inputCommand user input command
      */
-    public static void emptyChecker(String taskName, int taskFlag) throws EmptyToDo, EmptyDeadline, EmptyEvent {
-        if (taskName.equals("") && taskFlag == 1){
+    public static void emptyTaskChecker(String inputCommand) throws EmptyToDo, EmptyDeadline, EmptyEvent {
+        switch (inputCommand) {
+        case "todo":
             throw new EmptyToDo();
-        }else if ( taskName.equals("") && taskFlag == 2){
+        case "deadline":
             throw new EmptyDeadline();
-        } else if ( taskName.equals("") && taskFlag == 3 ){
+        case "event":
             throw new EmptyEvent();
+        }
+    }
+
+    /**
+     * Checks if deadline or event commands have the correct format
+     *
+     * @param inputCommand user input command
+     */
+    public static void missingFormatChecker(String inputCommand) throws UnknownCommand {
+        if ( !(inputCommand.contains("/at") || inputCommand.contains("/by")) ){
+            throw new UnknownCommand();
         }
     }
 }

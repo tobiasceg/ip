@@ -53,13 +53,14 @@ public abstract class Ui{
 
     public static void unknownMessage() {
         printLine();
-        System.out.println(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+        System.out.println(" ☹ OOPS!!! I'm sorry, but I don't know what that means\n" +
+                "Please check the format of the previous input code");
         printLine();
     }
 
     public static void incorrectDateFormat() {
         printLine();
-        System.out.println("Incorrect Date or DateTime input detected!" +
+        System.out.println("Incorrect DateTime input detected! Please check if input the relevant format for deadline or event\n" +
                 "Please follow the format: d-MM-yyyy or d-MM-yyyy HHmm");
         printLine();
     }

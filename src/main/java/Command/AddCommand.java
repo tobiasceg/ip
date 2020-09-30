@@ -30,11 +30,9 @@ public abstract class AddCommand extends Command {
      *
      * @param inputTask command input by the user
      * @param list arraylist to contain each task
-     * @return flag indicating which task was created
      */
 
-    public static int execute(String inputTask, ArrayList<Task> list) throws EmptyDeadline, EmptyEvent, EmptyToDo, UnknownCommand, DateTimeException {
-        int taskFlag; // to differentiate between each task, thus different exception
+    public static void execute(String inputTask, ArrayList<Task> list) throws EmptyDeadline, EmptyEvent, EmptyToDo, UnknownCommand, DateTimeException {
         final int TODO_REMOVAL = 5;
         final int DEADLINE_REMOVAL = 9;
         final int EVENT_REMOVAL = 6;
@@ -44,27 +42,24 @@ public abstract class AddCommand extends Command {
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d-MM-yyyy HHmm");
 
+        Parser.emptyTaskChecker(inputTask.trim());
 
         if (inputTask.contains("todo")) {
-            taskFlag = 1;
             taskName = inputTask.substring(TODO_REMOVAL);
-            Parser.emptyChecker(taskName, taskFlag);
             Todo newTask = new Todo(taskName);
             TaskList.addedList(list, newTask, 1);
 
         } else if (inputTask.contains("deadline")) {
-            taskFlag = 2;
+            Parser.missingFormatChecker(inputTask);
             taskName = inputTask.substring(DEADLINE_REMOVAL, inputTask.indexOf("/") - 1);
-            Parser.emptyChecker(taskName, taskFlag);
             dueDate = inputTask.substring(inputTask.indexOf("/by") + 4).stripLeading().stripTrailing();
             LocalDateTime deadlineDate = LocalDateTime.parse(dueDate, dateTimeFormatter);
             Deadline newTask = new Deadline(taskName, deadlineDate);
             TaskList.addedList(list, newTask, 1);
 
         } else if (inputTask.contains("event")) {
-            taskFlag = 3;
+            Parser.missingFormatChecker(inputTask);
             taskName = inputTask.substring(EVENT_REMOVAL, inputTask.indexOf("/") - 1);
-            Parser.emptyChecker(taskName, taskFlag);
             dueDate = inputTask.substring(inputTask.indexOf("/at") + 4).stripLeading().stripTrailing();
             LocalDateTime eventDate = LocalDateTime.parse(dueDate, dateTimeFormatter);
             Event newTask = new Event(taskName, eventDate);
@@ -72,7 +67,5 @@ public abstract class AddCommand extends Command {
         } else {
             throw new UnknownCommand();
         }
-        return taskFlag;
     }
-
 }

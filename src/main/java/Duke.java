@@ -39,16 +39,7 @@ public class Duke {
         Path dukeLocation = Paths.get(dukeHome, "data", "duke.txt");
         File dukeFile = new File(String.valueOf(dukeLocation));
 
-        // Array of the Task class objects
         ArrayList<Task> list = new ArrayList<>();
-
-        /*
-        Flag to see which command triggers the exception StringIndexOut....
-        1 refers to To do
-        2 refers to deadline
-        3 refers to event              
-        */
-        int taskFlag = 0;
 
         Storage.loadStorage(dukeFile, dukeLocation, list);
 
@@ -67,25 +58,17 @@ public class Duke {
                 }else if (reply.contains("find")) {
                     FindCommand.execute(reply, list);
                 } else {
-                    taskFlag = AddCommand.execute(reply, list);
+                    AddCommand.execute(reply, list);
                 }
                 Storage.storageWriteToTextFile(dukeLocation,list);
-            } catch ( UnknownCommand e) { // don't understand the command
+            } catch ( UnknownCommand e) {
                 Ui.unknownMessage();
-            } catch ( EmptyToDo e) { // spacing
+            } catch ( EmptyToDo e) {
                 Ui.emptyToDoMessage();
-            } catch ( EmptyEvent e) { // spacing
+            } catch ( EmptyEvent e) {
                 Ui.emptyEventMessage();
-            } catch ( EmptyDeadline e) { // spacing
+            } catch ( EmptyDeadline e) {
                 Ui.emptyDeadlineMessage();
-            } catch ( StringIndexOutOfBoundsException e ) { // no spacing
-                if (taskFlag == 1){
-                    Ui.emptyToDoMessage();
-                }else if (taskFlag == 2){
-                    Ui.emptyDeadlineMessage();
-                }else if (taskFlag == 3){
-                    Ui.emptyEventMessage();
-                }
             } catch (IOException e) {
                 Ui.printMissingFileMessage();
             } catch (DateTimeException e) {
