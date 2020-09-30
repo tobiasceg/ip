@@ -84,6 +84,8 @@ public class Duke {
                 Ui.printMissingFileMessage();
             } catch (DateTimeException e){
                 Ui.incorrectDateFormat();
+            } catch (IndexOutOfBoundsException e ){
+                Ui.outsideListIndex();
             }
         }
     }

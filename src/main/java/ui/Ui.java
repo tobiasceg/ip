@@ -18,6 +18,7 @@ public abstract class Ui{
         printLine();
         System.out.println(" Hello! I'm Duke the list bot\n" +
                 " Please list down your plans for today...\n" +
+                " For more information on how to use me, check the User Guide!\n" +
                 " type \"list\" to see the current list!\n" +
                 " type \"bye\" after you are done!");
         printLine();
@@ -62,6 +63,12 @@ public abstract class Ui{
         printLine();
         System.out.println("Incorrect Date or DateTime input detected!" +
                 "Please follow the format: d-MM-yyyy or d-MM-yyyy HHmm");
+        printLine();
+    }
+
+    public static void outsideListIndex() {
+        printLine();
+        System.out.println("Index not found, please recheck the list");
         printLine();
     }
 }
