@@ -42,7 +42,13 @@ public class Duke {
         // Array of the Task class objects
         ArrayList<Task> list = new ArrayList<>();
 
-        int taskFlag = 0; // Flag to see which command triggers the exception StringIndexOut....
+        /*
+        Flag to see which command triggers the exception StringIndexOut....
+        1 refers to To do
+        2 refers to deadline
+        3 refers to event              
+        */
+        int taskFlag = 0;
 
         Storage.loadStorage(dukeFile, dukeLocation, list);
 
@@ -84,6 +90,8 @@ public class Duke {
                 Ui.printMissingFileMessage();
             } catch (DateTimeException e){
                 Ui.incorrectDateFormat();
+            } catch (IndexOutOfBoundsException e){
+                Ui.outsideIndexMessage();
             }
         }
     }

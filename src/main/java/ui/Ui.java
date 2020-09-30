@@ -18,6 +18,7 @@ public abstract class Ui{
         printLine();
         System.out.println(" Hello! I'm Duke the list bot\n" +
                 " Please list down your plans for today...\n" +
+                "For the command list, please refer to the User Guide!\n" +
                 " type \"list\" to see the current list!\n" +
                 " type \"bye\" after you are done!");
         printLine();
@@ -62,6 +63,12 @@ public abstract class Ui{
         printLine();
         System.out.println("Incorrect Date or DateTime input detected!" +
                 "Please follow the format: d-MM-yyyy or d-MM-yyyy HHmm");
+        printLine();
+    }
+
+    public static void outsideIndexMessage() {
+        printLine();
+        System.out.println("Missing Index given, please check the list index again");
         printLine();
     }
 }
