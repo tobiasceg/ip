@@ -36,7 +36,7 @@ public class Task {
      * @return a string that displays the task's completion status and name
      */
     @Override
-    public String toString(){
+    public String toString() {
         return "[" + this.checkStatus() + "] " + this.description;
     }
 
@@ -45,11 +45,11 @@ public class Task {
      *
      * @param rebootFlag 1 to print message to user, 0 is without
      */
-    public void markAsDone(int rebootFlag){
+    public void markAsDone(int rebootFlag) {
 
-        if (!isDone){   //checking if isDone is false?
+        if (!isDone) {   //checking if isDone is false?
             isDone = true;
-            if ( rebootFlag == 1) {
+            if ( rebootFlag == 1 ) {
                 printLine();
                 System.out.println(" Nice! I've marked this task as done:");
                 System.out.println("  [" + checkStatus() + "] " + description);

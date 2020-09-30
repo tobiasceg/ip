@@ -58,16 +58,16 @@ public class Duke {
                 if (reply.equals("bye")) {
                     Ui.outroMessage();
                     break;
-                } else if (reply.equals("list")){
+                } else if (reply.equals("list")) {
                     TaskList.printList(list);
                 } else if (reply.contains("done")) {
-                    DoneCommand.execute(reply,list);
+                    DoneCommand.execute(reply, list);
                 } else if (reply.contains("delete")) {
                     DeleteCommand.execute(reply, list);
-                }else if (reply.contains("find")){
-                    FindCommand.execute(reply,list);
+                }else if (reply.contains("find")) {
+                    FindCommand.execute(reply, list);
                 } else {
-                    taskFlag = AddCommand.execute(reply,list);
+                    taskFlag = AddCommand.execute(reply, list);
                 }
                 Storage.storageWriteToTextFile(dukeLocation,list);
             } catch ( UnknownCommand e) { // don't understand the command
@@ -88,9 +88,9 @@ public class Duke {
                 }
             } catch (IOException e) {
                 Ui.printMissingFileMessage();
-            } catch (DateTimeException e){
+            } catch (DateTimeException e) {
                 Ui.incorrectDateFormat();
-            } catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
                 Ui.outsideIndexMessage();
             }
         }

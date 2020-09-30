@@ -62,7 +62,7 @@ public abstract class Storage {
                     final String DUE_DATE = data.substring(data.indexOf(":") + 2, data.indexOf(")"));
                     if (data.contains("[E]")) {
                         taskName = data.substring(STATUS_REMOVAL, data.indexOf("(") - 1);
-                        dueDateEvent = LocalDateTime.parse(DUE_DATE,dateTimeFormatter);
+                        dueDateEvent = LocalDateTime.parse(DUE_DATE, dateTimeFormatter);
                         Event newTask = new Event(taskName, dueDateEvent);
                         TaskList.addedList(list,  newTask, 0);
                         if (data.contains("\u2713")) {
@@ -70,7 +70,7 @@ public abstract class Storage {
                         }
                     } else if (data.contains("[D]")) {
                         taskName = data.substring(STATUS_REMOVAL, data.indexOf("(") - 1);
-                        dueDateDeadline = LocalDateTime.parse(DUE_DATE,dateTimeFormatter);
+                        dueDateDeadline = LocalDateTime.parse(DUE_DATE, dateTimeFormatter);
                         Deadline newTask = new Deadline(taskName, dueDateDeadline);
                         TaskList.addedList(list,  newTask, 0);
                         if (data.contains("\u2713")) {
@@ -96,7 +96,7 @@ public abstract class Storage {
      * @param dukeLocation Path to the file
      * @param list The list to be saved
      */
-    public static void storageWriteToTextFile(Path dukeLocation,ArrayList<Task> list) throws IOException {
+    public static void storageWriteToTextFile(Path dukeLocation, ArrayList<Task> list) throws IOException {
         FileWriter fw = new FileWriter(dukeLocation.toString());
         for (Task i : list) {
             fw.write(i.toString() + "\n");

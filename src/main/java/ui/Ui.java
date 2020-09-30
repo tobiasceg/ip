@@ -7,14 +7,13 @@ package ui;
  */
 public abstract class Ui{
 
-
     public static void outroMessage() {
         printLine();
         System.out.println(" Bye. Hope to see you again soon!");
         printLine();
     }
 
-    public static void introMessage(){
+    public static void introMessage() {
         printLine();
         System.out.println(" Hello! I'm Duke the list bot\n" +
                 " Please list down your plans for today...\n" +
@@ -24,10 +23,9 @@ public abstract class Ui{
         printLine();
     }
 
-    public static void printLine(){
+    public static void printLine() {
         System.out.println(" ____________________________________________________________");
     }
-
 
     public static void printMissingFileMessage() {
         printLine();
@@ -46,12 +44,12 @@ public abstract class Ui{
         System.out.println(" ☹ OOPS!!! The description of a event cannot be empty.");
         printLine();
     }
+
     public static void emptyDeadlineMessage() {
         printLine();
         System.out.println(" ☹ OOPS!!! The description of a deadline cannot be empty.");
         printLine();
     }
-
 
     public static void unknownMessage() {
         printLine();

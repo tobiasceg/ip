@@ -19,7 +19,7 @@ public abstract class TaskList extends ArrayList<Task> {
         printLine();
         System.out.println("Here are the tasks in your list:");
         for (Task i : list){
-            System.out.println( (list.indexOf(i)+1) + "." + i.toString());
+            System.out.println( (list.indexOf(i)+1) + "." + i.toString() );
         }
         printLine();
     }
@@ -31,7 +31,7 @@ public abstract class TaskList extends ArrayList<Task> {
      * @param newTask the input task by to be added
      * @param rebootFlag flag to choose if print message is to be displayed
      */
-    public static void addedList(ArrayList<Task> list, Task newTask,int rebootFlag) {
+    public static void addedList(ArrayList<Task> list, Task newTask, int rebootFlag) {
         list.add(newTask);
         if(rebootFlag == 1) {
             added(newTask, list.size());
@@ -44,7 +44,7 @@ public abstract class TaskList extends ArrayList<Task> {
      * @param addedTask task that was added to arraylist
      * @param listCounter The current number of task in the arraylist
      */
-    public static void added(Task addedTask,int listCounter){
+    public static void added(Task addedTask, int listCounter){
         printLine();
         System.out.println(
                 "Got it. I've added this task:\n" +
@@ -59,7 +59,7 @@ public abstract class TaskList extends ArrayList<Task> {
      * @param deletedTask task that was deleted in arraylist
      * @param listCounter the current number of task in the arraylist
      */
-    public static void printDelete(Task deletedTask,int listCounter) {
+    public static void printDelete(Task deletedTask, int listCounter) {
         printLine();
         System.out.println("Noted. I've removed this task:");
         System.out.println(deletedTask.toString());
@@ -67,7 +67,7 @@ public abstract class TaskList extends ArrayList<Task> {
         printLine();
     }
 
-    public static void printLine(){
+    public static void printLine() {
         System.out.println(" ____________________________________________________________");
     }
 

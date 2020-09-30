@@ -57,7 +57,7 @@ public abstract class AddCommand extends Command {
             taskName = inputTask.substring(DEADLINE_REMOVAL, inputTask.indexOf("/") - 1);
             Parser.emptyChecker(taskName, taskFlag);
             dueDate = inputTask.substring(inputTask.indexOf("/by") + 4).stripLeading().stripTrailing();
-            LocalDateTime deadlineDate = LocalDateTime.parse(dueDate,dateTimeFormatter);
+            LocalDateTime deadlineDate = LocalDateTime.parse(dueDate, dateTimeFormatter);
             Deadline newTask = new Deadline(taskName, deadlineDate);
             TaskList.addedList(list, newTask, 1);
 
@@ -66,7 +66,7 @@ public abstract class AddCommand extends Command {
             taskName = inputTask.substring(EVENT_REMOVAL, inputTask.indexOf("/") - 1);
             Parser.emptyChecker(taskName, taskFlag);
             dueDate = inputTask.substring(inputTask.indexOf("/at") + 4).stripLeading().stripTrailing();
-            LocalDateTime eventDate = LocalDateTime.parse(dueDate,dateTimeFormatter);
+            LocalDateTime eventDate = LocalDateTime.parse(dueDate, dateTimeFormatter);
             Event newTask = new Event(taskName, eventDate);
             TaskList.addedList(list, newTask, 1);
         } else {

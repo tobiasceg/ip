@@ -14,8 +14,8 @@ public abstract class FindCommand extends Command {
         ArrayList<Task> searchResults = new ArrayList<>();
 
         String searchWord = inputTask.substring(FIND_REMOVAL);
-        for (Task i:list){
-            if (i.toString().contains(searchWord)){
+        for (Task i : list){
+            if (i.toString().contains(searchWord)) {
                 searchResults.add(i);
             }
         }
