@@ -1,10 +1,10 @@
 # User Guide
 Tobias's Duke
 ## Features 
-###Managing todos, deadlines and events 
+Managing todos, deadlines and events 
 Duke is in charge of listing and keeping track of your tasks (todos,deadlines and events)
 
-###Saving and Loading
+Saving and Loading
 Duke also automatically saves your current list into your computer
 and automatically uploads the saved list everytime you start a new session
 
@@ -40,6 +40,8 @@ Allows the user to exit Duke
 Adds a task to the list
 
 Format - `todo <task description>` / `deadline <task description /by <date/time>` / `event <task description> /at <date/time>`
+
+Important Note - date/time format: d-MM-yyyy HHmm
 
 #### Example of Usage:
 * Todo
