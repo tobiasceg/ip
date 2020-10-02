@@ -1,6 +1,7 @@
  ____________________________________________________________
  Hello! I'm Duke the list bot
  Please list down your plans for today...
+ For the command list, please refer to the User Guide!
  type "list" to see the current list!
  type "bye" after you are done!
  ____________________________________________________________
@@ -10,28 +11,44 @@ Got it. I've added this task:
 Now you have 1 tasks in the list
  ____________________________________________________________
  ____________________________________________________________
-Here are the tasks in your list:
-1.[T][✘] borrow book
- ____________________________________________________________
-
- ____________________________________________________________
 Got it. I've added this task:
-[D][✘] return book (by: Sunday)
+[T][✘] buy food
 Now you have 2 tasks in the list
  ____________________________________________________________
  ____________________________________________________________
+Here are the tasks in your list:
+1.[T][✘] borrow book
+2.[T][✘] buy food
+ ____________________________________________________________
+ ____________________________________________________________
 Got it. I've added this task:
-[E][✘] project meeting (at: Mon 2-4pm)
+[D][✘] return book (by: Feb 02 2019 1800)
 Now you have 3 tasks in the list
+ ____________________________________________________________
+ ____________________________________________________________
+Got it. I've added this task:
+[E][✘] project meeting (at: Feb 02 2019 2000)
+Now you have 4 tasks in the list
+ ____________________________________________________________
+ ____________________________________________________________
+Here are the matching tasks in your list:
+1.[T][✘] buy food
+ ____________________________________________________________
+ ____________________________________________________________
+ Nice! I've marked this task as done:
+  [✓] buy food
+ ____________________________________________________________
+ ____________________________________________________________
+Noted. I've removed this task:
+[T][✓] buy food
+Now you have 3 task in this list
  ____________________________________________________________
  ____________________________________________________________
 Here are the tasks in your list:
 1.[T][✘] borrow book
-2.[D][✘] return book (by: Sunday)
-3.[E][✘] project meeting (at: Mon 2-4pm)
+2.[D][✘] return book (by: Feb 02 2019 1800)
+3.[E][✘] project meeting (at: Feb 02 2019 2000)
  ____________________________________________________________
-
  ____________________________________________________________
  Bye. Hope to see you again soon!
  ____________________________________________________________
-

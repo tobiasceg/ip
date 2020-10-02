@@ -17,7 +17,7 @@ public abstract class Ui{
         printLine();
         System.out.println(" Hello! I'm Duke the list bot\n" +
                 " Please list down your plans for today...\n" +
-                "For the command list, please refer to the User Guide!\n" +
+                " For the command list, please refer to the User Guide!\n" +
                 " type \"list\" to see the current list!\n" +
                 " type \"bye\" after you are done!");
         printLine();
